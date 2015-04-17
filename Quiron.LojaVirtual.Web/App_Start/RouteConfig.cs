@@ -14,28 +14,43 @@ namespace Quiron.LojaVirtual.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: null,
-                url: "Pagina{pagina}",
-                defaults: new {controller = "Vitrine", action = "ListaProdutos"}
-                );
+            // 1 - (/) Produtos de todas as categorias
+            routes.MapRoute(null,
+                "",
+                new {controller = "Vitrine",
+                     action = "ListaProdutos", 
+                     categoria = (string) null, pagina = 1});
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new {controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional}
-                );
-
-            //Rotas da categoria por pagina
+            // 2 - (/Pagina2  Todas as categorias da pagina 2
             routes.MapRoute(null,
                 "Pagina{pagina}",
-                new {controller = "Vitrine", Action = "ListaProdutos", categoria = (string) null}, new {pagina = @"\d+"});
+                new {controller = "Vitrine", 
+                action = "ListaProdutos", 
+                categoria = (string) null},
+                new {pagina = @"\d+"});
 
 
-        }
+            // 3 - (/Futebol) Primeira pagina da categoria futebol
+            routes.MapRoute(null,"{categoria}",new
+            {
+                controller = "Vitrine", 
+                action = "ListaProdutos", 
+                pagina = 1
+            });
 
-    )
-                
+
+            // 4 - (/Futebol/Pagina2) Pagina 2 da categoria futebol
+            routes.MapRoute(null,
+                "{categoria}Pagina{pagina}",
+                new 
+                {
+                    controller = "Vitrine", 
+                    action = "ListaProdutos"
+                }, 
+                new {pagina = @"\d+"});
+
+
+            routes.MapRoute(null, "{controller}/{action}");
         }
     }
 }
