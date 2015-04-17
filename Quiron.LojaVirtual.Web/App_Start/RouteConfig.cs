@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Quiron.LojaVirtual.Web.Models;
 
 namespace Quiron.LojaVirtual.Web
 {
@@ -22,8 +23,19 @@ namespace Quiron.LojaVirtual.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional }
-            );
+                defaults: new {controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional}
+                );
+
+            //Rotas da categoria por pagina
+            routes.MapRoute(null,
+                "Pagina{pagina}",
+                new {controller = "Vitrine", Action = "ListaProdutos", categoria = (string) null}, new {pagina = @"\d+"});
+
+
+        }
+
+    )
+                
         }
     }
 }
