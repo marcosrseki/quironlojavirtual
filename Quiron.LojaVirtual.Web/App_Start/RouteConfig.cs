@@ -19,14 +19,14 @@ namespace Quiron.LojaVirtual.Web
                 "",
                 new {controller = "Vitrine",
                      action = "ListaProdutos", 
-                     categoria = (string) null, pagina = 1});
+                     categoria = (string)null, pagina = 1});
 
             // 2 - (/Pagina2  Todas as categorias da pagina 2
             routes.MapRoute(null,
                 "Pagina{pagina}",
                 new {controller = "Vitrine", 
                 action = "ListaProdutos", 
-                categoria = (string) null},
+                categoria = (string)null},
                 new {pagina = @"\d+"});
 
 
@@ -41,7 +41,7 @@ namespace Quiron.LojaVirtual.Web
 
             // 4 - (/Futebol/Pagina2) Pagina 2 da categoria futebol
             routes.MapRoute(null,
-                "{categoria}Pagina{pagina}",
+                "{categoria}/Pagina{pagina}",
                 new 
                 {
                     controller = "Vitrine", 
