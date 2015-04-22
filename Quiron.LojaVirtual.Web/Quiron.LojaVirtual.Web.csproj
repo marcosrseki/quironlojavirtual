@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HtmlHelpers\PaginacaoHelpers.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -176,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Carrinho\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
