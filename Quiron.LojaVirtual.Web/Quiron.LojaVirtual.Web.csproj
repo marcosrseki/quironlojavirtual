@@ -150,6 +150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarrinhoViewModel.cs" />
     <Compile Include="Models\Paginacao.cs" />
     <Compile Include="Models\ProdutosViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +169,7 @@
     <Content Include="Views\Vitrine\ListaProdutos.cshtml" />
     <Content Include="Views\Shared\ProdutoDetalhes.cshtml" />
     <Content Include="Views\Categoria\Menu.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Carrinho\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
