@@ -14,12 +14,13 @@
     @Html.ValidationSummary()
 
     <h3>Enivar para</h3>
-    
+
     <div class="form-group">
         <label>Nome do cliente</label>
         @Html.TextBoxFor(x => x.NomeCliente, new { @class = "form-control" })
     </div>
 
+    <!--
     <h3>Dados para entrega</h3>
 
     <div class="form-group">
@@ -51,6 +52,23 @@
         <label>Email</label>
         @Html.TextBoxFor(x => x.Email, new {@class = "form-control"})
     </div>
+   -->
+
+
+    <hr />
+    foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        if (property.PropertyName != "NomeCliente" && property.PropertyName != "EmbrulhaPresente")
+        {
+            <div class="form-group">
+                <label>
+                    @(property.DisplayName ?? property.PropertyName)
+                </label>
+
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+            </div>
+        }
+    }
 
     <h3>Opções</h3>
 
@@ -60,8 +78,9 @@
             Embrulhar para presente
         </label>
     </div>
-    
-    <input class="btn btn-primary" type="submit" value="Fechar o pedido"/>
+
+    <input class="btn btn-primary" type="submit" value="Fechar o pedido" />
+
 
 }
 
