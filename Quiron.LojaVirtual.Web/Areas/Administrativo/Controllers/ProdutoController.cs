@@ -50,6 +50,7 @@ namespace Quiron.LojaVirtual.Web.Areas.Administrativo.Controllers
             return View("Alterar", new Produto());
         }
 
+        /*
         [HttpPost]
         public ActionResult Excluir(int produtoId)
         {
@@ -63,6 +64,23 @@ namespace Quiron.LojaVirtual.Web.Areas.Administrativo.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+         */
+
+        [HttpPost]
+        public JsonResult Excluir(int produtoId)
+        {
+            string mensagem = string.Empty;
+            _repositorio = new ProdutosRepositorio();
+
+            Produto prod = _repositorio.Excluir(produtoId);
+
+            if (prod != null)
+            {
+                mensagem = string.Format("{0} excluído com sucesso", prod.Nome);
+            }
+
+            return Json(mensagem, JsonRequestBehavior.AllowGet);
         }
     }
 }
