@@ -18,6 +18,6 @@ namespace Quiron.LojaVirtual.Dominio.Entidades
         [DataType(DataType.Password)] //Oculta os caracteres da senha
         public string Senha { get; set; }
 
-        public DateTime UltimoAcesso { get; set; }
+        public Nullable<DateTime> UltimoAcesso { get; set; }
     }
 }

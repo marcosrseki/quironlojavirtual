@@ -8,7 +8,7 @@ using Quiron.LojaVirtual.Dominio.Repositorio;
 
 namespace Quiron.LojaVirtual.Web.Areas.Administrativo.Controllers
 {
-
+    //Força a autenticacao do controller
     [Authorize]
 
     public class ProdutoController : Controller
