@@ -34,7 +34,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
                 if (admin != null)
                 {
                     //Se forem direferentes
-                    if (!Equals(administrador.Senha == admin.Senha))
+                    if (!Equals(administrador.Senha,admin.Senha))
                     {
                         ModelState.AddModelError("", "Senha não confere");
                     }
@@ -59,6 +59,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
                     ModelState.AddModelError("","Administrador não localizado");
                 }
             }
+            return View(new Administrador());
         }
     }
 }
