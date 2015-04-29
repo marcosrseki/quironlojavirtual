@@ -13,6 +13,8 @@ namespace Quiron.LojaVirtual.Dominio.Repositorio
     {
         public DbSet<Produto> Produtos { get; set; }
 
+        public DbSet<Administrador> Administradores { get; set; } 
+
         //Sobreescrevendo, retira pluralização, por exemplo produto para produtos
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -21,6 +23,7 @@ namespace Quiron.LojaVirtual.Dominio.Repositorio
 
             //Cria mapeamento de produto para produtos
             modelBuilder.Entity<Produto>().ToTable("Produtos");
+            modelBuilder.Entity<Administrador>().ToTable("Administradores");
 
         }
     }
